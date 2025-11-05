@@ -38,7 +38,7 @@ app.post('/emit', (req, res) => {
 
   let mensajeData;
   try {
-    mensajeData = JSON.parse(req.body);
+    mensajeData = req.body;
   } catch (err) {
     console.error('Error al parsear mensaje:', err);
     mensajeData = { mensaje: mensaje };
