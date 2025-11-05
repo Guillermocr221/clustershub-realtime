@@ -2,9 +2,10 @@
   "name": "clustershub-realtime",
   "version": "1.0.0",
   "description": "Servidor tmp para gestión de socket de chat en tiempo real.",
-  "main": "index.js",
+  "main": "src/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
