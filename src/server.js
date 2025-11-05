@@ -36,7 +36,15 @@ app.post('/emit', (req, res) => {
     return res.status(400).json({ success: false, message: 'Datos incompletos' });
   }
 
-  io.to(cod_receptor).emit('nuevo_mensaje', mensaje);
+  let mensajeData;
+  try {
+    mensajeData = typeof mensaje === 'string' ? JSON.parse(mensaje) : mensaje;
+  } catch (err) {
+    console.error('Error al parsear mensaje:', err);
+    mensajeData = { mensaje: mensaje };
+  }
+
+  io.to(cod_receptor).emit('nuevo_mensaje', mensajeData);
   console.log(`Mensaje emitido a ${cod_receptor}`);
   res.json({ success: true });
 });
